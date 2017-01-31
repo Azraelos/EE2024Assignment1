@@ -71,7 +71,10 @@ int main(void)
         y = plant(u,st,-0.8,0.2); // Do NOT change the plant parameters
         e = sp - y;
 
+        e = e * 100;
         //  Call the assembly language function pid_ctrl() here
+        extern int pid_ctrl(e, st);
+        e = e / 100;
 
        	printf("%lf\n",e);
     }
